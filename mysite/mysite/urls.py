@@ -1,7 +1,7 @@
-from django.conf.urls import include, url
 from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    url(r'^carco2/', include('carco2.urls')),
-    url(r'^admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('', include('carco2.urls')),
 ]

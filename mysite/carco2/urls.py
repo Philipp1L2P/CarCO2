@@ -1,7 +1,6 @@
-from django.conf.urls import url
-
-from . import views
+from django.urls import path
+from carco2 import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    path('', views.carco2, name='carco2'),
 ]

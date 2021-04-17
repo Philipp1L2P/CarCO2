@@ -1,5 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-
-def index(request):
-    return HttpResponse("Ahoi, hier ist die Benutzerbedienungoberfläche im Django")
+def carco2(request):
+    return render(request, 'carco2.html', {})
