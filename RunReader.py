@@ -1,25 +1,72 @@
 from Reader import reader
+import pandas as pd
+import os
 
-csv_file_path = "csv-files/Test_production.csv"
-typ = "2er"
-roof = "Cabrio"
-seat = "Leather"
-motor = "E-Motor"
+
+typ = "scenic"  # possible types: "2er", "3er", "4er", "twingo", "clio", "scenic", "a4", "a5", "a6"
+roof = "Cabrio"  # "Cabrio" or "Roof"
+seat = "Leather"  # "Leather" or "Cloth"
+motor = "E-Motor"  # "E-Motor", "V-Motor", "H-Motor"
+paint = "Base"  # "Metallic" or "Base"
+
 
 # Initialize an instance of the object Reader
-myreader = reader.Reader(csv_file_path, typ, roof, seat, motor)
-myreader = reader.Reader(csv_file_path, typ, roof, seat, motor)
+myreader = reader.Reader(typ, roof, seat, motor)
 
-# get the complete csv data
-csv_data = myreader.get_data()
+# value list stores all variables
+value_list = myreader.calculate_all_values()
 
-# Get the csv values
-csv_values = myreader.return_csv_values(csv_data)
+audi_production_roof = value_list[0]
+audi_production_seat = value_list[1]
+audi_production_motor = value_list[2]
+audi_production_coating = value_list[3]
+audi_production_sum = value_list[4]
 
-# get the specific CO2 values for roof, seat, motor
-roof_co2 = myreader.get_roof_co2(csv_values)
-seat_co2 = myreader.get_seat_co2(csv_values)
-motor_co2 = myreader.get_motor_co2(csv_values)
+audi_usage_roof = value_list[5]
+audi_usage_seat = value_list[6]
+audi_usage_motor = value_list[7]
+audi_usage_coating = value_list[8]
+audi_usage_sum = value_list[9]
 
-# get the added CO2 values
-sum = myreader.get_sum(roof_co2, seat_co2, motor_co2)
+audi_recycling_roof = value_list[10]
+audi_recycling_seat = value_list[11]
+audi_recycling_motor = value_list[12]
+audi_recycling_coating = value_list[13]
+audi_recycling_sum = value_list[14]
+
+bmw_production_roof = value_list[15]
+bmw_production_seat = value_list[16]
+bmw_production_motor = value_list[17]
+bmw_production_coating = value_list[18]
+bmw_production_sum = value_list[19]
+
+bmw_usage_roof = value_list[20]
+bmw_usage_seat = value_list[21]
+bmw_usage_motor = value_list[22]
+bmw_usage_coating = value_list[23]
+bmw_usage_sum = value_list[24]
+
+bmw_recycling_roof = value_list[25]
+bmw_recycling_seat = value_list[26]
+bmw_recycling_motor = value_list[27]
+bmw_recycling_coating = value_list[28]
+bmw_recycling_sum = value_list[29]
+
+renault_production_roof = value_list[20]
+renault_production_seat = value_list[31]
+renault_production_motor = value_list[32]
+renault_production_coating = value_list[33]
+renault_production_sum = value_list[34]
+
+renault_usage_roof = value_list[28]
+renault_usage_seat = value_list[29]
+renault_usage_motor = value_list[30]
+renault_usage_coating = value_list[30]
+renault_usage_sum = value_list[31]
+
+renault_recycling_roof = value_list[32]
+renault_recycling_seat = value_list[33]
+renault_recycling_motor = value_list[34]
+renault_recycling_coating = value_list[34]
+renault_recycling_sum = value_list[35]
+
